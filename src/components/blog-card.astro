@@ -1,0 +1,64 @@
+---
+import { type CollectionEntry } from "astro:content";
+import FormattedDate from "./formatted-date.astro";
+
+type Props = CollectionEntry<"blog">;
+
+const { id, data } = Astro.props;
+---
+
+<li class="blog-card">
+    <a href={`/blog/${id}/`} class="blog-card__title">
+        <h2>{data.title}</h2>
+    </a>
+    <span class="blog-card__posted-on">
+        Posted on
+        <FormattedDate date={data.posted_on} />
+    </span>
+    <p class="blog-card__description">
+        {data.description}
+    </p>
+</li>
+
+<style>
+    .blog-card {
+        display: grid;
+        gap: 0.6rem;
+    }
+
+    .blog-card__title {
+        font: 600 1.85rem/1.1 var(--default-font-sans);
+        color: hsl(200, 100%, 30%);
+
+        @media (prefers-color-scheme: dark) {
+            color: hsl(200, 100%, 60%);
+        }
+
+        @media (min-width: 768px) {
+            font-size: 2rem;
+        }
+        @media (min-width: 1024px) {
+            font-size: 2.25rem;
+        }
+    }
+
+    .blog-card__posted-on {
+        font: 1rem/1.5 var(--default-font-sans);
+        @media (min-width: 1024px) {
+            font-size: 1.125rem;
+        }
+    }
+
+    .blog-card__description {
+        font: 1.1rem/1.5 var(--default-font-sans);
+        overflow: hidden;
+        line-clamp: 3;
+        -webkit-line-clamp: 3;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+
+        @media (min-width: 1024px) {
+            font-size: 1.125rem;
+        }
+    }
+</style>
