@@ -1,0 +1,34 @@
+---
+import Layout from "./layout.astro";
+
+type Props = {
+    title: string;
+    description: string;
+    posted_on: Date;
+};
+
+const { title, description, posted_on } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+    <article>
+        <header>
+            <h1>{title}</h1>
+            <span
+                ><time datetime={posted_on.toISOString()}>
+                    {
+                        posted_on.toLocaleDateString("en-in", {
+                            year: "numeric",
+                            month: "long",
+                            day: "2-digit",
+                        })
+                    }
+                </time></span
+            >
+        </header>
+
+        <section>
+            <slot />
+        </section>
+    </article>
+</Layout>
