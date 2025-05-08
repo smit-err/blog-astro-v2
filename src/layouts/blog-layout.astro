@@ -16,7 +16,7 @@ const { title, description, posted_on } = Astro.props;
         <header class="blog__header">
             <h1 class="blog__title">{title}</h1>
             <span class="blog__posted-on"
-                ><FormattedDate date={posted_on} /></span
+                >Posted on <FormattedDate date={posted_on} /></span
             >
         </header>
 
@@ -27,11 +27,6 @@ const { title, description, posted_on } = Astro.props;
 </Layout>
 
 <style>
-    article {
-        max-width: 75ch;
-        margin: 0 auto;
-    }
-
     section {
         margin-block: 3em;
     }
