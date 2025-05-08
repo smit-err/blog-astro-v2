@@ -13,6 +13,8 @@ const { title, description } = Astro.props;
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content={Astro.generator} />
+
         <title>{title}</title>
         <meta name="description" content={description} />
     </head>
@@ -21,3 +23,72 @@ const { title, description } = Astro.props;
         <slot />
     </body>
 </html>
+
+<style is:global>
+    :root {
+        --clr-foreground: hsl(206, 6.4%, 3.8%);
+        --clr-background: hsl(206, 6.4%, 94.5%);
+        --clr-blockquote-border: hsl(206, 6.4%, 70%);
+        --clr-code-foreground: hsl(20, 93%, 30%);
+        --clr-code-background: hsla(26, 93%, 56%, 20%);
+
+        --default-font-sans: sans-serif, system-ui;
+        --default-font-mono: monospace, ui-monospace;
+
+        @media (prefers-color-scheme: dark) {
+            --clr-background: hsl(206, 6.4%, 3.8%);
+            --clr-foreground: hsl(206, 6.4%, 94.5%);
+            --clr-blockquote-border: hsl(206, 6.4%, 70%);
+            --clr-code-foreground: orange;
+            --clr-code-background: hsl(26, 93%, 6%);
+        }
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        background-color: var(--clr-background);
+        color: var(--clr-foreground);
+    }
+
+    ::selection {
+        background-color: var(--clr-foreground);
+        color: var(--clr-background);
+    }
+
+    code,
+    pre {
+        font-family: var(--default-font-mono);
+        font-feature-settings: normal;
+        font-variation-settings: normal;
+        font-size: 1em;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        text-wrap: balance;
+    }
+
+    a {
+        color: inherit;
+    }
+
+    p,
+    li {
+        max-width: 65ch;
+        text-wrap: pretty;
+    }
+
+    body {
+        margin-block: 1.2em;
+        padding: 0 1.2em;
+    }
+</style>
