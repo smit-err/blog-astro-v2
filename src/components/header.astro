@@ -1,0 +1,39 @@
+---
+import HeaderLink from "./header-link.astro";
+---
+
+<header>
+    <nav class="header__nav">
+        <a href="/" class="header__title">smit_mistry</a>
+
+        <div class="header__link-group">
+            <HeaderLink href={"/blog/"}>Blog</HeaderLink>
+            <HeaderLink href={"/about/"}>About</HeaderLink>
+            <HeaderLink href={"/portfolio/"}>Portfolio</HeaderLink>
+        </div>
+    </nav>
+</header>
+
+<style>
+    header {
+        max-width: 70ch;
+        margin: 0 auto 3rem;
+        padding: 1.5rem 0;
+    }
+
+    header > nav {
+        display: grid;
+        gap: 0.25rem;
+    }
+
+    .header__link-group {
+        display: flex;
+        gap: 0.65rem;
+        font-size: 1.1rem;
+    }
+
+    .header__title {
+        text-decoration: none;
+        font: 600 2.6rem/1.5 var(--default-font-sans);
+    }
+</style>
