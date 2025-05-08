@@ -1,11 +1,12 @@
 ---
 import { getCollection } from "astro:content";
+import Layout from "../../layouts/layout.astro";
 
 const posts = await getCollection("blog");
 ---
 
-<div>
-    <ol>
+<Layout title="Blog page" description="This is blog page">
+    <ol style={{ display: "grid", gap: "1rem", listStylePosition: "inside" }}>
         {
             posts.map((post) => (
                 <li>
@@ -14,4 +15,4 @@ const posts = await getCollection("blog");
             ))
         }
     </ol>
-</div>
+</Layout>
