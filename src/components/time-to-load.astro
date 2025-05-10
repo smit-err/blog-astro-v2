@@ -1,0 +1,11 @@
+<p>Loaded in <span id="time">0s</span></p>
+
+<script>
+    function timeToLoad() {
+        const [entries] = performance.getEntriesByType("navigation");
+        const timeToDisplay = document.getElementById("time");
+        if (!timeToDisplay) return;
+        timeToDisplay.textContent = `${(Math.floor(entries.toJSON().domComplete) / 1000).toString()}s`;
+    }
+    window.addEventListener("load", timeToLoad);
+</script>
