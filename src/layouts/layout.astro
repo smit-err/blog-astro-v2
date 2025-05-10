@@ -1,5 +1,6 @@
 ---
 import Header from "@components/header.astro";
+import Footer from "@components/footer.astro";
 
 type Props = {
     title: string;
@@ -16,6 +17,7 @@ const { title, description } = Astro.props;
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content={Astro.generator} />
+        <link rel="icon" href="/favicon.svg" sizes="32x32" />
 
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -24,14 +26,21 @@ const { title, description } = Astro.props;
     <body>
         <Header />
         <slot />
+        <Footer />
     </body>
 </html>
 
 <style is:global>
     :root {
-        --clr-foreground: hsl(0, 6.4%, 8.8%);
         --clr-background: hsl(206, 6.4%, 94.5%);
+        --clr-foreground: hsl(0, 6.4%, 8.8%);
+
+        --clr-muted-foreground: hsl(0, 6.4%, 20%);
+        --clr-brand: hsl(200, 100%, 30%);
+
+        --clr-border: hsl(0, 6.4%, 80%);
         --clr-blockquote-border: hsl(206, 6.4%, 70%);
+
         --clr-code-foreground: hsl(20, 93%, 30%);
         --clr-code-background: hsla(26, 93%, 56%, 20%);
 
@@ -41,6 +50,12 @@ const { title, description } = Astro.props;
         @media (prefers-color-scheme: dark) {
             --clr-background: hsl(0, 6.4%, 8.8%);
             --clr-foreground: hsl(206, 6.4%, 94.5%);
+
+            --clr-border: hsl(0, 6.4%, 30%);
+
+            --clr-brand: hsl(200, 100%, 60%);
+
+            --clr-muted-foreground: hsl(206, 6.4%, 70%);
             --clr-blockquote-border: hsl(206, 6.4%, 70%);
             --clr-code-foreground: orange;
             --clr-code-background: hsl(26, 93%, 6%);
@@ -56,6 +71,7 @@ const { title, description } = Astro.props;
     html {
         background-color: var(--clr-background);
         color: var(--clr-foreground);
+        /* font-family: var(--default-font-sans); */
     }
 
     ::selection {

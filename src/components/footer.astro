@@ -1,0 +1,55 @@
+---
+import IconX from "../assets/x.svg";
+import IconGithub from "../assets/github.svg";
+import IconMail from "../assets/mail.svg";
+
+import TimeToLoad from "./time-to-load.astro";
+---
+
+<footer>
+    <div class="social-icons">
+        <a
+            href="https://x.com/smitme_"
+            target="_blank"
+            aria-label="x (formerly twttier)"
+        >
+            <IconX />
+        </a>
+        <a
+            href="https://github.com/smit-err"
+            target="_blank"
+            aria-label="github"
+        >
+            <IconGithub />
+        </a>
+        <a href="mailto:smitmistry19@gmail.com" aria-label="email">
+            <IconMail />
+        </a>
+    </div>
+    <TimeToLoad />
+</footer>
+
+<style>
+    footer {
+        margin-block: 3.6em 0.75em;
+        border-top: 1px solid var(--clr-border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font: 1rem/1.5 var(--default-font-sans);
+        padding: 1.65em 0;
+        color: var(--clr-muted-foreground);
+    }
+
+    .social-icons {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        svg {
+            aspect-ratio: 1/1;
+            height: 1.3rem;
+            width: auto;
+        }
+    }
+</style>
