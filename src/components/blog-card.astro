@@ -28,11 +28,7 @@ const { id, data } = Astro.props;
 
     .blog-card__title {
         font: 600 1.85rem/1.1 var(--default-font-sans);
-        color: hsl(200, 100%, 30%);
-
-        @media (prefers-color-scheme: dark) {
-            color: hsl(200, 100%, 60%);
-        }
+        color: var(--clr-brand);
 
         @media (min-width: 768px) {
             font-size: 2rem;
