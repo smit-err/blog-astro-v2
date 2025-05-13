@@ -1,7 +1,79 @@
 ---
 import Layout from "@layouts/layout.astro";
+import ProjectCard from "@components/project-card.astro";
+import ProjectContainer from "@components/project-container.astro";
+
+import { FEATURED_WORK } from "../data/portfolio.ts";
 ---
 
 <Layout title="Home" description="This is home page of smit mistry">
-    <h1>Astro</h1>
+    <div class="container">
+        <h1 class="container__heading">design and performance engineer</h1>
+        <h2 class="container__description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem
+            nesciunt quia dolor quas aliquid eveniet mollitia illum deleniti quo
+            reprehenderit.
+        </h2>
+        <a href="/about/"> More about me </a>
+    </div>
+    {
+        FEATURED_WORK.length > 0 && (
+            <div class="featured-work">
+                <h1 class="featured-work__heading">Featured work</h1>
+                <ProjectContainer>
+                    {FEATURED_WORK.map((work) => (
+                        <ProjectCard
+                            logo={work.logo}
+                            title={work.title}
+                            short_subheading={work.short_subheading}
+                            year={work.year}
+                            category={work.category}
+                            image={work.image}
+                        />
+                    ))}
+                </ProjectContainer>
+            </div>
+        )
+    }
 </Layout>
+
+<style>
+    .container__heading {
+        font-size: 1rem;
+        text-transform: uppercase;
+        line-height: 1.5;
+        margin-block: 0 1.5em;
+        color: var(--clr-muted-foreground);
+    }
+
+    .container__description {
+        font-size: 1.8rem;
+        line-height: 1.1;
+    }
+
+    a {
+        text-decoration: none;
+        padding: 0.5em 1em;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        border: 1px solid var(--clr-border);
+        display: inline-flex;
+        margin-block: 2em 0;
+    }
+
+    a:hover {
+        color: var(--clr-background);
+        background-color: var(--clr-foreground);
+        border-color: var(--clr-foreground);
+    }
+
+    .featured-work {
+        display: grid;
+        gap: 1rem;
+        margin-block: 10.5em 0;
+    }
+    .featured-work__heading {
+        font-size: 1.125rem;
+        text-transform: uppercase;
+    }
+</style>
