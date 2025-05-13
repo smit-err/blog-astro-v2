@@ -1,0 +1,106 @@
+---
+import { Image } from "astro:assets";
+
+type Props = {
+    logo: ((_props: astroHTML.JSX.SVGAttributes) => any) & ImageMetadata;
+    title: string;
+    short_subheading: string;
+    year: string;
+    category: string;
+    image: ImageMetadata;
+};
+
+const {
+    logo: Logo,
+    title,
+    short_subheading,
+    year,
+    category,
+    image,
+} = Astro.props;
+---
+
+<li class="project-card">
+    <!-- logo -->
+    <Logo />
+    <div class="project-card__text">
+        <!-- project title -->
+        <h1 class="project-card__title">{title}</h1>
+
+        <!-- project short subheading -->
+        <h2 class="project-card__subheading">
+            {short_subheading}
+        </h2>
+
+        <!-- project date, category -->
+        <div class="project-card__info">
+            <span class="project-card__date">{year}</span>
+            <span>&middot;</span>
+            <span class="project-card__category">{category}</span>
+        </div>
+    </div>
+
+    <!-- project image? -->
+    <div class="project-card__image">
+        <Image src={image} alt={"hel"} class="project-image" />
+    </div>
+</li>
+
+<style>
+    .project-card {
+        padding: 1.5rem;
+        border: 1px solid var(--clr-border);
+        overflow-x: hidden;
+
+        @media (min-width: 768px) {
+            overflow-x: auto;
+        }
+    }
+
+    .project-card > svg {
+        aspect-ratio: auto;
+        width: auto;
+        height: 1.8rem;
+
+        @media (prefers-color-scheme: dark) {
+            filter: invert(1);
+        }
+    }
+
+    .project-card__text {
+        margin-block: 1.5em;
+        display: grid;
+        gap: 0.7rem;
+    }
+    .project-card__title {
+        font-size: 1.435rem;
+        font-weight: 600;
+    }
+
+    .project-card__subheading {
+        font-size: 1.125rem;
+    }
+
+    .project-card__info {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.875rem;
+        color: var(--clr-muted-foreground);
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 0.035em;
+        padding-top: 0.3em;
+    }
+
+    .project-card__image {
+        aspect-ratio: 3/2;
+    }
+    .project-image {
+        height: auto;
+        aspect-ratio: 3/2;
+        @media (min-width: 768px) {
+            width: 100%;
+        }
+    }
+</style>
