@@ -1,0 +1,38 @@
+---
+import PageHeader from "@components/page-header.astro";
+import Layout from "@layouts/layout.astro";
+import ProjectContainer from "@components/project-container.astro";
+
+import ProjectCard from "@components/project-card.astro";
+
+import { PORTFOLIO } from "../../data/portfolio";
+
+const heading = "Portfolio";
+const description =
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id exercitationem illo earum quam et aperiam illum fuga fugiat accusantium natus eum iure cupiditate magnam debitis, asperiores sed. Quibusdam, dolorem sapiente.";
+---
+
+<Layout title="Portfolio" description="This is portfolio page">
+    <PageHeader heading={heading} description={description}>
+        {
+            PORTFOLIO.length > 0 ? (
+                <ProjectContainer>
+                    {PORTFOLIO.map((work) => (
+                        <ProjectCard
+                            logo={work.logo}
+                            title={work.title}
+                            short_subheading={work.short_subheading}
+                            year={work.year}
+                            category={work.category}
+                            image={work.image}
+                        />
+                    ))}
+                </ProjectContainer>
+            ) : (
+                <p style={{ marginBlock: "2em", fontSize: "1.75rem" }}>
+                    Coming soon &hellip;
+                </p>
+            )
+        }
+    </PageHeader>
+</Layout>
