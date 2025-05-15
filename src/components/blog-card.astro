@@ -27,7 +27,9 @@ const { id, data } = Astro.props;
     }
 
     .blog-card__title {
-        font: 600 1.85rem/1.1 var(--default-font-sans);
+        font-weight: 600;
+        font-size: 1.85rem;
+        line-height: 1.1;
         color: var(--clr-primary);
 
         @media (min-width: 768px) {
@@ -39,14 +41,13 @@ const { id, data } = Astro.props;
     }
 
     .blog-card__posted-on {
-        font: 1rem/1.5 var(--default-font-sans);
         @media (min-width: 1024px) {
             font-size: 1.125rem;
         }
     }
 
     .blog-card__description {
-        font: 1.1rem/1.5 var(--default-font-sans);
+        font-size: 1.1rem;
         overflow: hidden;
         line-clamp: 3;
         -webkit-line-clamp: 3;

@@ -32,7 +32,7 @@ const { title, description, posted_on } = Astro.props;
     }
 
     .blog__posted-on {
-        font: 1em var(--default-font-sans);
+        font-size: 1rem;
     }
 
     .blog__header {
@@ -40,15 +40,23 @@ const { title, description, posted_on } = Astro.props;
     }
 
     .blog__title {
-        font: 600 3rem/1.1 var(--default-font-sans);
+        font-size: 3rem;
+        font-weight: 600;
+        line-height: 1.1;
         letter-spacing: -0.05em;
         display: inline-block;
         margin-block: 1rem;
     }
 
     .blog__content {
+        h2,
+        h3 {
+            font-weight: 600;
+        }
+
         h2 {
-            font: 600 1.95rem/1.2 var(--default-font-sans);
+            font-size: 1.95rem;
+            line-height: 1.2;
             margin-block: 1em 0.65em;
         }
 
@@ -57,12 +65,12 @@ const { title, description, posted_on } = Astro.props;
         }
 
         h3 {
-            font: 600 1.4rem/1.5 var(--default-font-sans);
+            font-size: 1.4rem;
             margin-block: 2em 0.8em;
         }
 
         p:not(blockquote *) {
-            font: 1.125rem/1.5 var(--default-font-sans);
+            font-size: 1.125rem;
             margin-block: 1rem;
         }
 
@@ -71,10 +79,6 @@ const { title, description, posted_on } = Astro.props;
             padding: 1em 1.25em;
             border-radius: 0.5rem;
             margin-block: 1.5rem;
-        }
-
-        code {
-            font: 1rem/1.5 var(--default-font-mono);
         }
 
         code:not(pre *) {
@@ -114,9 +118,6 @@ const { title, description, posted_on } = Astro.props;
             border-left: 1px solid var(--clr-foreground);
             padding: 1rem;
             margin-block: 2.2em;
-            font:
-                1rem/1.5 ui-system,
-                sans-serif;
         }
 
         blockquote p::before {
