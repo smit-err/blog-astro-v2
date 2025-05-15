@@ -6,6 +6,6 @@ type Props = HTMLAttributes<"a">;
 const { class: className, href, ...props } = Astro.props;
 ---
 
-<a href={href} class:list={[className]} {...props}>
+<a href={href} class:list={[className]} {...props} data-astro-prefetch>
     <slot />
 </a>
