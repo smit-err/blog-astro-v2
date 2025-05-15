@@ -18,22 +18,6 @@ export const FEATURED_WORK = [
     category: "side project",
     image: Placeholder,
   },
-  {
-    logo: Company,
-    title: "Transend",
-    short_subheading: "Auto parts e-commerce platform",
-    year: "2024",
-    category: "design & development",
-    image: Placeholder,
-  },
-  {
-    logo: Company,
-    title: "The Flaming Candle",
-    short_subheading: "Artisan candle making supplies",
-    year: "2024",
-    category: "design & development",
-    image: Placeholder,
-  },
 ];
 
 export const PORTFOLIO = [
