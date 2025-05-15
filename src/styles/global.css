@@ -17,6 +17,7 @@
     --clr-background: hsl(0 0%95%);
     --clr-foreground: hsl(0 0% 6%);
     --clr-muted-background: hsl(0 0% 0% / 0.1);
+    --clr-muted-foreground: hsl(0 0% 38%);
     --clr-ghost-background: hsl(0 0% 0% / 0.05);
     --clr-primary: hsl(214 94% 43%);
     --clr-border: var(--clr-muted-background);
@@ -43,6 +44,8 @@
         --clr-background: hsl(0 0% 6%);
         --clr-foreground: hsl(0 0% 95%);
         --clr-muted-background: hsl(0 0% 100% / 0.2);
+        --clr-muted-foreground: hsl(0 0% 67%);
+
         --clr-ghost-background: hsl(0 0% 100% / 0.1);
         --clr-primary: hsl(208 100% 62%);
     }
